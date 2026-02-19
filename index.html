@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahedi - Professional Video Editor</title>
+    <meta name="description" content="Portfolio of Mahedi Hasan, a professional video editor specializing in cinematic storytelling for brands, creators, and businesses.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --bg-card: #121212;
+            --accent: #ef4444; /* Red-500 */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .heading-font {
+            font-family: 'Oswald', sans-serif;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f0f0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+        /* Cinematic Blur Animation for Hero */
+        @keyframes subtle-zoom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .animate-subtle-zoom {
+            animation: subtle-zoom 20s infinite ease-in-out;
+        }
+        /* Hide scrollbar for carousel but keep functionality */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Software Slider Animation */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 25s linear infinite;
+        }
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        /* Gradient Overlay utilities */
+        .cinematic-gradient {
+            background: linear-gradient(to top, var(--bg-dark) 0%, transparent 100%);
+        }
+        
+        .aspect-9-16 {
+            aspect-ratio: 9 / 16;
+        }
+        /* Carousel Drag Helper */
+        .grabbing {
+            cursor: grabbing;
+        }
+        .grab {
+            cursor: grab;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation (Overlay) -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-black/80 backdrop-blur-md border-b border-white/5 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tighter text-white heading-font">MAH<span class="text-red-500">EDI</span></a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300 pl-18">
+                <a href="#shorts" class="hover:text-white transition-colors">Shorts</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <a href="#contact" class="hidden md:inline-block px-5 py-2 text-xs font-bold uppercase tracking-wider border border-white/20 hover:bg-white hover:text-black transition-all duration-300 rounded-sm">
+                Get in Touch
+            </a>
+            <!-- Mobile Menu Icon -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-black/95 border-b border-white/10 py-4 px-6 flex flex-col space-y-4">
+            <a href="#shorts" class="text-gray-300 hover:text-white block">Shorts</a>
+            <a href="#projects" class="text-gray-300 hover:text-white block">Projects</a>
+            <a href="#services" class="text-gray-300 hover:text-white block">Services</a>
+            <a href="#contact" class="text-red-500 font-bold block">Contact</a>
+        </div>
+    </nav>
+    <!-- HERO SECTION -->
+    <header class="relative min-h-screen pb-26 pt-30 flex items-center justify-center pt-20 overflow-hidden" id="home">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <!-- Timeline/Software Background (Cinematic) -->
+            <img src="https://raw.githubusercontent.com/Mahedi2369/Portfolio-MHshuv0-MahediHasan/refs/heads/main/portfolio%20sample%202.gif" 
+                 alt="Premiere Pro Timeline Background" 
+                 class="w-full h-full object-cover animate-subtle-zoom opacity-40 blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
+        </div>
+        <div class="container mx-auto px-6 z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
+            
+            <!-- Mobile: Image on top -->
+            <!-- Left Side: Portrait -->
+            <div class="relative w-64 h-80 md:w-100 md:h-[500px] rounded-lg overflow-hidden border border-white/10 shadow-2xl shadow-red-900/20 transition-transform duration-500 hover:scale-[1.02] mx-auto md:mx-0 md:ml-32">
+                <!-- Portrait -->
+                <img src="https://raw.githubusercontent.com/Mahedi2369/Portfolio-MHshuv0-MahediHasan/refs/heads/main/yy4m.jpg" 
+                     alt="Mahedi Hasan" 
+                     class="w-full h-full object-cover">
+                <!-- Cinematic Overlay on Image -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            </div>
+            <!-- Right Side: Content -->
+            <div class="text-center md:text-left order-2 md:order-2 space-y-6">
+                <div class="inline-block px-3 py-1 border border-red-500/30 bg-red-500/10 rounded-full mb-2">
+                    <span class="text-red-400 text-xs font-bold uppercase tracking-widest">Available for Hire</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
+                    MAHEDI <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">HASAN</span>
+                </h1>
+                
+                <h2 class="text-2xl md:text-3xl text-gray-300 font-light">
+                    Professional Video Editor
+                </h2>
+                
+                <p class="text-gray-400 text-lg max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    Creating cinematic stories for brands, creators, and businesses. I turn raw clips into meaningful, story-driven visuals that grab attention and leave a lasting impression.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+                    <a href="#projects" class="px-8 py-4 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-200 transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-transparent border border-white/30 text-white font-bold uppercase tracking-wider hover:bg-white/10 transition-all transform hover:-translate-y-1">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+            <a href="#shorts" class="text-white/50 hover:text-white transition-colors">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </div>
+    </header>
+    <!-- REELS / SHORTS SECTION -->
+    <section id="shorts" class="py-24 bg-[#0a0a0a] relative overflow-hidden">
+        <div class="container mx-auto px-6 mb-12">
+            <div class="flex justify-between items-end">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-2 heading-font">Short-Form <span class="text-red-500">Edits</span></h2>
+                    <p class="text-gray-400">Instagram Reels • TikTok • YouTube Shorts</p>
+                </div>
+                <div class="flex gap-4">
+                    <button id="prev-reel" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors cursor-pointer">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button id="next-reel" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors cursor-pointer">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel Container (Boxed within container width) -->
+        <div class="container mx-auto px-6 overflow-hidden">
+            <div class="relative w-full" id="carousel-container">
+                <!-- The Track -->
+                <div id="carousel-track" class="flex gap-6 grab will-change-transform">
+                    <!-- Javascript will inject items here -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- LONG VIDEO SECTION -->
+    <section id="projects" class="py-24 bg-black relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-16 text-center heading-font">Featured <span class="text-red-500">Projects</span></h2>
+            <!-- Row 1: Commercial & Lyrical (3 Videos Side-by-Side on Desktop) -->
+            <div class="mb-12">
+                 <div class="flex items-center gap-4 mb-8">
+                    <div class="h-px bg-white/20 flex-grow"></div>
+                    <h3 class="text-2xl font-bold text-white uppercase tracking-wider">Commercial & Lyrical Music Videos</h3>
+                    <div class="h-px bg-white/20 flex-grow"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Commercial Video -->
+                    <div class="aspect-video bg-zinc-900 rounded-lg overflow-hidden border border-white/10 hover:border-red-500/50 transition-colors shadow-lg group relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/hqJnZzOQN8s" title="Commercial Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Commercial</div>
+                    </div>
+                    <!-- Lyrical Video 1 -->
+                    <div class="aspect-video bg-zinc-900 rounded-lg overflow-hidden border border-white/10 hover:border-red-500/50 transition-colors shadow-lg group relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/M20Wok8evKQ" title="Lyrical Video 1" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        <div class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Lyrical</div>
+                    </div>
+                    <!-- Lyrical Video 2 -->
+                    <div class="aspect-video bg-zinc-900 rounded-lg overflow-hidden border border-white/10 hover:border-red-500/50 transition-colors shadow-lg group relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/88DMsNt6JU8" title="Lyrical Video 2" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                         <div class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Lyrical</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Row 2: Music Videos (3 Videos Side-by-Side on Desktop) -->
+            <div>
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="h-px bg-white/20 flex-grow"></div>
+                    <h3 class="text-2xl font-bold text-white uppercase tracking-wider">Music Videos</h3>
+                    <div class="h-px bg-white/20 flex-grow"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Music Video 1 -->
+                    <div class="aspect-video bg-zinc-900 rounded-lg overflow-hidden border border-white/10 hover:border-red-500/50 transition-colors shadow-lg group relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/FnVOLe5p6ng" title="Music Video 1" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Music Video</div>
+                    </div>
+                    <!-- Music Video 2 -->
+                    <div class="aspect-video bg-zinc-900 rounded-lg overflow-hidden border border-white/10 hover:border-red-500/50 transition-colors shadow-lg group relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/iUD4VJ7l3CY" title="Music Video 2" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Music Video</div>
+                    </div>
+                    <!-- Music Video 3 -->
+                    <div class="aspect-video bg-zinc-900 rounded-lg overflow-hidden border border-white/10 hover:border-red-500/50 transition-colors shadow-lg group relative">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/r85opB5qzfc" title="Music Video 3" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        <div class="absolute top-2 left-2 bg-purple-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Music Video</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ABOUT SECTION -->
+    <section class="py-24 bg-[#0a0a0a]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-white mb-8 heading-font">About <span class="text-red-500">Me</span></h2>
+                <p class="text-xl text-gray-300 leading-relaxed mb-6">
+                    As a working video editor, I enjoy transforming concepts into compelling visual narratives. I work on music videos, commercial projects, and interesting social media content, always aiming for crisp, excellent outcomes.
+                </p>
+                <p class="text-lg text-gray-400 leading-relaxed mb-8">
+                    I make each video feel impactful, fluid, and clear by fusing my artistic vision with meticulous editing. I am able to deliver on time while maintaining attention to detail because of my well-organized and straightforward workflow. I produce polished content that accurately embodies your vision, whether you're a creator expanding your audience or a brand developing your identity.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="p-4 border border-white/5 bg-white/5 rounded-lg">
+                        <div class="text-red-500 text-2xl mb-2"><i class="fa-solid fa-clock"></i></div>
+                        <div class="text-white font-bold">Fast Turnaround</div>
+                    </div>
+                    <div class="p-4 border border-white/5 bg-white/5 rounded-lg">
+                        <div class="text-red-500 text-2xl mb-2"><i class="fa-solid fa-eye"></i></div>
+                        <div class="text-white font-bold">Attention to Detail</div>
+                    </div>
+                    <div class="p-4 border border-white/5 bg-white/5 rounded-lg">
+                        <div class="text-red-500 text-2xl mb-2"><i class="fa-solid fa-comments"></i></div>
+                        <div class="text-white font-bold">Clear Comms</div>
+                    </div>
+                    <div class="p-4 border border-white/5 bg-white/5 rounded-lg">
+                        <div class="text-red-500 text-2xl mb-2"><i class="fa-solid fa-video"></i></div>
+                        <div class="text-white font-bold">Story Focused</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 bg-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-white mb-16 text-center heading-font">What I <span class="text-red-500">Offer</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="p-8 bg-zinc-900/50 border border-white/5 rounded-xl hover:bg-zinc-900 hover:border-red-500/30 transition-all group">
+                    <div class="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Commercial Editing</h3>
+                    <p class="text-gray-400 text-sm">High-retention ads and promo videos designed to convert.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="p-8 bg-zinc-900/50 border border-white/5 rounded-xl hover:bg-zinc-900 hover:border-red-500/30 transition-all group">
+                    <div class="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Social Media Reels</h3>
+                    <p class="text-gray-400 text-sm">Fast-paced, engaging edits for TikTok, Reels, and Shorts.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="p-8 bg-zinc-900/50 border border-white/5 rounded-xl hover:bg-zinc-900 hover:border-red-500/30 transition-all group">
+                    <div class="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Music Videos</h3>
+                    <p class="text-gray-400 text-sm">Sync, pacing, and visual effects to match the beat.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="p-8 bg-zinc-900/50 border border-white/5 rounded-xl hover:bg-zinc-900 hover:border-red-500/30 transition-all group">
+                    <div class="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">YouTube Content</h3>
+                    <p class="text-gray-400 text-sm">Vlogs, tutorials, and long-form content editing.</p>
+                </div>
+                <!-- Service 5 -->
+                <div class="p-8 bg-zinc-900/50 border border-white/5 rounded-xl hover:bg-zinc-900 hover:border-red-500/30 transition-all group">
+                    <div class="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Color Grading</h3>
+                    <p class="text-gray-400 text-sm">Professional color correction and cinematic grading.</p>
+                </div>
+                <!-- Service 6 -->
+                <div class="p-8 bg-zinc-900/50 border border-white/5 rounded-xl hover:bg-zinc-900 hover:border-red-500/30 transition-all group">
+                    <div class="w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shapes"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Motion Graphics</h3>
+                    <p class="text-gray-400 text-sm">Titles, lower thirds, and custom animations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SOFTWARE SLIDER SECTION -->
+    <section class="py-16 bg-[#050505] border-t border-b border-white/5">
+        <div class="container mx-auto px-6 mb-8 text-center">
+            <h3 class="text-xl font-bold text-gray-400 uppercase tracking-widest">Tools I Work With</h3>
+        </div>
+        
+        <div class="marquee-container w-full">
+            <div class="marquee-content flex items-center gap-16 px-8">
+                <!-- Logos -->
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-purple-500 transition-all"><i class="fa-solid fa-film"></i> Premiere Pro</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-blue-500 transition-all"><i class="fa-solid fa-explosion"></i> After Effects</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-green-500 transition-all"><i class="fa-solid fa-palette"></i> DaVinci Resolve</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-cyan-500 transition-all"><i class="fa-solid fa-scissors"></i> CapCut</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-orange-500 transition-all"><i class="fa-solid fa-video"></i> Filmora</div>
+                
+                <!-- Duplicate -->
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-purple-500 transition-all"><i class="fa-solid fa-film"></i> Premiere Pro</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-blue-500 transition-all"><i class="fa-solid fa-explosion"></i> After Effects</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-green-500 transition-all"><i class="fa-solid fa-palette"></i> DaVinci Resolve</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-cyan-500 transition-all"><i class="fa-solid fa-scissors"></i> CapCut</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-orange-500 transition-all"><i class="fa-solid fa-video"></i> Filmora</div>
+                <!-- Triplicate -->
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-purple-500 transition-all"><i class="fa-solid fa-film"></i> Premiere Pro</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-blue-500 transition-all"><i class="fa-solid fa-explosion"></i> After Effects</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-green-500 transition-all"><i class="fa-solid fa-palette"></i> DaVinci Resolve</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-cyan-500 transition-all"><i class="fa-solid fa-scissors"></i> CapCut</div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-500 grayscale hover:grayscale-0 hover:text-orange-500 transition-all"><i class="fa-solid fa-video"></i> Filmora</div>
+            </div>
+        </div>
+    </section>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="pb-40 pt-32 bg-black relative overflow-hidden">
+        <!-- Background Gradient Spot -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-600/10 blur-[100px] rounded-full pointer-events-none"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 heading-font">Let's Work <span class="text-red-500">Together</span></h2>
+            <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Ready to take your content to the next level? Reach out through any of the platforms below.</p>
+            
+            <div class="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
+                
+                <a href="mailto:mahedi.hasan192837@gmail.com" class="group flex items-center justify-center gap-3 px-6 py-4 bg-zinc-900 border border-white/10 rounded-lg hover:border-red-500 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-red-900/20 min-w-[200px] flex-1">
+                    <div class="text-red-500 text-xl group-hover:scale-110 transition-transform"><i class="fa-solid fa-envelope"></i></div>
+                    <span class="text-white font-medium">Email Me</span>
+                </a>
+                <a href="https://wa.me/8801830256369" target="_blank" class="group flex items-center justify-center gap-3 px-6 py-4 bg-zinc-900 border border-white/10 rounded-lg hover:border-green-500 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-green-900/20 min-w-[200px] flex-1">
+                    <div class="text-green-500 text-xl group-hover:scale-110 transition-transform"><i class="fa-brands fa-whatsapp"></i></div>
+                    <span class="text-white font-medium">WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/mhshuvo0/" target="_blank" class="group flex items-center justify-center gap-3 px-6 py-4 bg-zinc-900 border border-white/10 rounded-lg hover:border-pink-500 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-900/20 min-w-[200px] flex-1">
+                    <div class="text-pink-500 text-xl group-hover:scale-110 transition-transform"><i class="fa-brands fa-instagram"></i></div>
+                    <span class="text-white font-medium">Instagram</span>
+                </a>
+                <a href="https://www.facebook.com/mahedihasanshuvo0" target="_blank" class="group flex items-center justify-center gap-3 px-6 py-4 bg-zinc-900 border border-white/10 rounded-lg hover:border-blue-500 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/20 min-w-[200px] flex-1">
+                    <div class="text-blue-500 text-xl group-hover:scale-110 transition-transform"><i class="fa-brands fa-facebook"></i></div>
+                    <span class="text-white font-medium">Facebook</span>
+                </a>
+                <a href="https://www.linkedin.com/in/mahedi-hasan-a7884425a/" target="_blank" class="group flex items-center justify-center gap-3 px-6 py-4 bg-zinc-900 border border-white/10 rounded-lg hover:border-blue-400 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-800/20 min-w-[200px] flex-1">
+                    <div class="text-blue-400 text-xl group-hover:scale-110 transition-transform"><i class="fa-brands fa-linkedin"></i></div>
+                    <span class="text-white font-medium">LinkedIn</span>
+                </a>
+                <a href="https://x.com/MahediHasa10229" target="_blank" class="group flex items-center justify-center gap-3 px-6 py-4 bg-zinc-900 border border-white/10 rounded-lg hover:border-white transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-white/20 min-w-[200px] flex-1">
+                    <div class="text-white text-xl group-hover:scale-110 transition-transform"><i class="fa-brands fa-twitter"></i></div>
+                    <span class="text-white font-medium">Twitter</span>
+                </a>
+                <a href="https://www.youtube.com/@GaanFlow" target="_blank" class="group flex items-center justify-center gap-3 px-6 py-4 bg-zinc-900 border border-white/10 rounded-lg hover:border-red-600 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-red-900/20 min-w-[200px] flex-1">
+                    <div class="text-red-600 text-xl group-hover:scale-110 transition-transform"><i class="fa-brands fa-youtube"></i></div>
+                    <span class="text-white font-medium">YouTube</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer class="bg-[#050505] border-t border-white/5 py-6">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <p class="text-white font-bold text-lg mb-1">MAHEDI</p>
+                <p class="text-gray-500 text-sm">&copy; 2026 MAHEDI. All rights reserved.</p>
+            </div>
+            
+            <div class="text-gray-400 text-sm mr-32">
+                Crafted with passion by <span class="text-white">Mahedi Hasan</span>
+            </div>
+            <div class="flex gap-4">
+                <a href="https://www.instagram.com/mhshuvo0/" class="text-gray-500 hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/MahediHasa10229" class="text-gray-500 hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/mahedi-hasan-a7884425a/" class="text-gray-500 hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT -->
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // --- Infinite Carousel Logic ---
+        const shortsIds = [
+            'uuoOsuDHDUk',
+            'besd0E1Gmxg',
+            'auszeD1Bl2g',
+            'zKShD1xqtfk',
+            'zTM9RlWCHm8',
+            'dB7DB5YM8Ik',
+            'Jv945CLeLOM'
+        ];
+        const track = document.getElementById('carousel-track');
+        const prevBtn = document.getElementById('prev-reel');
+        const nextBtn = document.getElementById('next-reel');
+        let cardWidth, gap, visibleItems;
+        // Function to create card HTML
+        const createCard = (id) => {
+            const div = document.createElement('div');
+            div.className = "flex-shrink-0 relative group rounded-xl overflow-hidden shadow-lg border border-white/10 transition-transform duration-300 hover:scale-105 bg-zinc-900";
+            div.style.aspectRatio = "9/16";
+            
+            // High-res thumbnail
+            const thumbUrl = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+            div.innerHTML = `
+                <div class="w-full h-full absolute inset-0 bg-cover bg-center z-10 cursor-pointer flex items-center justify-center group-image" 
+                     style="background-image: url('${thumbUrl}');"
+                     onclick="playReel(this, '${id}')">
+                    <div class="w-12 h-12 bg-red-600/90 rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform backdrop-blur-sm">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors -z-10"></div>
+                </div>
+            `;
+            return div;
+        };
+        // Global function to play reel
+        window.playReel = (element, id) => {
+            // Check if dragging occurred recently (prevent click if drag)
+            if (window.isDragMove) return;
+            // Replace the clicked div (the thumbnail container) with the iframe
+            const card = element.parentElement;
+            
+            card.innerHTML = `
+                <iframe 
+                    class="w-full h-full" 
+                    src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&loop=1&playlist=${id}" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            `;
+        };
+        // Render Initial Loop Structure
+        const clonesCount = 4; // Max visible items on desktop is 4
+        const renderCarousel = () => {
+            track.innerHTML = '';
+            
+            // Prepend clones (Last N items)
+            for (let i = shortsIds.length - clonesCount; i < shortsIds.length; i++) {
+                if(i >= 0) track.appendChild(createCard(shortsIds[i]));
+            }
+            // Originals
+            shortsIds.forEach(id => {
+                track.appendChild(createCard(id));
+            });
+            // Append clones (First N items)
+            for (let i = 0; i < clonesCount; i++) {
+                track.appendChild(createCard(shortsIds[i]));
+            }
+        };
+        renderCarousel();
+        // State
+        let currentIndex = clonesCount; // Start at first real item
+        let isTransitioning = false;
+        
+        // Update Layout Metrics
+        const updateMetrics = () => {
+            const container = document.getElementById('carousel-container');
+            const containerWidth = container.offsetWidth;
+            
+            if (window.innerWidth >= 1024) {
+                visibleItems = 4;
+            } else if (window.innerWidth >= 768) {
+                visibleItems = 3;
+            } else {
+                visibleItems = 2; 
+            }
+            // Calculate card width accounting for gap (24px = 1.5rem)
+            gap = 24;
+            
+            // Available width is just the container width now as we removed track padding
+            const usableWidth = containerWidth;
+            
+            cardWidth = (usableWidth - (gap * (visibleItems - 1))) / visibleItems;
+            // Apply width to all children
+            Array.from(track.children).forEach(child => {
+                child.style.width = `${cardWidth}px`;
+            });
+            // Reset position to current index without animation
+            updatePosition(false);
+        };
+        const updatePosition = (animate = true) => {
+            if (animate) {
+                track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+            } else {
+                track.style.transition = 'none';
+            }
+            // Logic: -(index * (cardWidth + gap))
+            const offset = currentIndex * (cardWidth + gap);
+            track.style.transform = `translateX(-${offset}px)`;
+        };
+        // Navigation Logic
+        const moveSlide = (direction) => {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex += direction;
+            updatePosition(true);
+            // Infinite Loop Check after transition
+            track.addEventListener('transitionend', () => {
+                isTransitioning = false;
+                
+                // If we moved past the last real item (into appended clones)
+                if (currentIndex >= shortsIds.length + clonesCount) {
+                    currentIndex = clonesCount; // Jump to start real item
+                    updatePosition(false);
+                }
+                
+                // If we moved before the first real item (into prepended clones)
+                if (currentIndex < clonesCount) {
+                    currentIndex = shortsIds.length + clonesCount - 1; // Jump to last real item
+                    updatePosition(false); // Snap
+                }
+            }, { once: true });
+        };
+        // Button Events
+        nextBtn.addEventListener('click', () => moveSlide(1));
+        prevBtn.addEventListener('click', () => moveSlide(-1));
+        // Swipe / Drag Support
+        let isDragging = false;
+        window.isDragMove = false;
+        // --- Drag Implementation ---
+        let dragStartX = 0;
+        
+        // Add touch-action to CSS for this element via JS or modify HTML class
+        track.style.touchAction = 'pan-y';
+        track.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            window.isDragMove = false;
+            dragStartX = e.pageX;
+            track.classList.add('grabbing');
+            track.style.transition = 'none';
+        });
+        track.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            window.isDragMove = false;
+            dragStartX = e.touches[0].clientX;
+            track.style.transition = 'none';
+        });
+        track.addEventListener('mousemove', (e) => {
+            if(!isDragging) return;
+            e.preventDefault(); // Prevent text selection
+            const x = e.pageX;
+            const walk = (x - dragStartX);
+            
+            if (Math.abs(walk) > 5) {
+                window.isDragMove = true;
+            }
+            // Visual feedback
+            const currentOffset = currentIndex * (cardWidth + gap);
+            track.style.transform = `translateX(${-currentOffset + walk}px)`;
+        });
+        track.addEventListener('touchmove', (e) => {
+            if(!isDragging) return;
+            
+            const x = e.touches[0].clientX;
+            const walk = (x - dragStartX);
+            if (Math.abs(walk) > 5) {
+                window.isDragMove = true;
+            }
+            const currentOffset = currentIndex * (cardWidth + gap);
+            track.style.transform = `translateX(${-currentOffset + walk}px)`;
+        });
+        const endDrag = (e) => {
+            if(!isDragging) return;
+            isDragging = false;
+            track.classList.remove('grabbing');
+            
+            const x = e.changedTouches ? e.changedTouches[0].clientX : e.pageX;
+            const walk = x - dragStartX;
+            
+            // Threshold to change slide
+            const threshold = 50; 
+            if (walk < -threshold) {
+                moveSlide(1);
+            } else if (walk > threshold) {
+                moveSlide(-1);
+            } else {
+                updatePosition(true); // Snap back
+            }
+        };
+        track.addEventListener('mouseup', endDrag);
+        track.addEventListener('mouseleave', () => {
+            if(isDragging) {
+                isDragging = false;
+                track.classList.remove('grabbing');
+                updatePosition(true);
+            }
+        });
+        track.addEventListener('touchend', endDrag);
+        // Resize Listener
+        window.addEventListener('resize', updateMetrics);
+        
+        // Initial Call
+        setTimeout(updateMetrics, 100);
+    </script>
+</body>
+</html>
